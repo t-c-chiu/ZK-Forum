@@ -1,0 +1,39 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<hlayout viewModel="@id('vm') @init('viewmodel.MainArticleVM')">
+	<if test="@load(vm.currentArticle ne null)">
+		<vlayout hflex="1">
+			<hlayout>
+				<label value="${labels.postDate}:" />
+				<label value="@load(vm.currentArticle.date)" />
+			</hlayout>
+			<hlayout>
+				<label value="${labels.author}:" />
+				<label value="@load(vm.currentArticle.author.name)" />
+			</hlayout>
+			<hlayout>
+				<label value="${labels.title}:" />
+				<label value="@load(vm.currentArticle.title)" />
+			</hlayout>
+			<hlayout>
+				<forEach items="@load(vm.currentArticle.tags)">
+					<label value="@load(each.name)" />
+				</forEach>
+			</hlayout>
+			<separator />
+			<label value="${labels.content}:" />
+			<html content="@load(vm.currentArticle.content)" />
+			<hlayout>
+				<button onClick="@command('reply')"
+					label="${labels.reply}" />
+				<if test="@load(vm.canBeModified)">
+					<button label="${labels.modify}"
+						onClick="@command('requestModify')" />
+				</if>
+				<if test="@load(vm.canBeDeleted)">
+					<button label="${labels.delete}"
+						onClick="@command('delete')" />
+				</if>
+			</hlayout>
+		</vlayout>
+	</if>
+</hlayout>

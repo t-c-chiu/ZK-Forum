@@ -1,0 +1,37 @@
+2018-03-02 12:55:30 [INFO] Root WebApplicationContext: initialization started
+2018-03-02 12:55:30 [INFO] Refreshing Root WebApplicationContext: startup date [Fri Mar 02 12:55:30 CST 2018]; root of context hierarchy
+2018-03-02 12:55:30 [INFO] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+2018-03-02 12:55:30 [INFO] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@433d61fb: defining beans [articleDAO,tagDAO,userDAO,scopedTarget.forumService,forumService,scopedTarget.loginService,loginService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,entityManagerFactory,transactionManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2018-03-02 12:55:30 [INFO] Building JPA EntityManagerFactory for persistence unit 'myapp'
+2018-03-02 12:55:30 [INFO] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2018-03-02 12:55:30 [INFO] HHH000412: Hibernate Core {4.0.0.Final}
+2018-03-02 12:55:30 [INFO] HHH000206: hibernate.properties not found
+2018-03-02 12:55:30 [INFO] HHH000021: Bytecode provider name : javassist
+2018-03-02 12:55:31 [INFO] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-03-02 12:55:31 [INFO] HHH000115: Hibernate connection pool size: 20
+2018-03-02 12:55:31 [INFO] HHH000006: Autocommit mode: true
+2018-03-02 12:55:31 [INFO] HHH000401: using driver [org.hsqldb.jdbcDriver] at URL [jdbc:hsqldb:file:data/forum]
+2018-03-02 12:55:31 [INFO] HHH000046: Connection properties: {user=sa, password=****, autocommit=true, release_mode=auto}
+2018-03-02 12:55:31 [INFO] checkpointClose start
+2018-03-02 12:55:31 [INFO] checkpointClose end
+2018-03-02 12:55:31 [INFO] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-03-02 12:55:31 [INFO] HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-03-02 12:55:31 [INFO] HHH000397: Using ASTQueryTranslatorFactory
+2018-03-02 12:55:32 [INFO] Root WebApplicationContext: initialization completed in 2374 ms
+2018-03-02 12:55:32 [INFO] Starting ZK 8.5.0 EE (build: 2017103111)
+2018-03-02 12:55:32 [INFO] Loading system default
+2018-03-02 12:55:32 [INFO] Parsing jar:file:/C:/Users/rd/.m2/repository/org/zkoss/zk/zul/8.5.0-Eval/zul-8.5.0-Eval.jar!/metainfo/zk/zk.xml
+2018-03-02 12:55:32 [INFO] Parsing jar:file:/C:/Users/rd/.m2/repository/org/zkoss/zk/zkex/8.5.0-Eval/zkex-8.5.0-Eval.jar!/metainfo/zk/zk.xml
+2018-03-02 12:55:32 [INFO] Parsing jar:file:/C:/Users/rd/.m2/repository/org/zkoss/zk/zkmax/8.5.0-Eval/zkmax-8.5.0-Eval.jar!/metainfo/zk/zk.xml
+2018-03-02 12:55:32 [INFO] Parsing file:/C:/workspace/Week3/src/main/webapp/WEB-INF/zk.xml
+2018-03-02 12:55:32 [ERROR] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
+2018-03-02 12:55:36 [INFO] Loading labels for zh_TW
+2018-03-02 12:55:36 [INFO] Loading labels for zh
+2018-03-02 12:55:36 [INFO] Opening file:/C:/workspace/Week3/src/main/webapp/WEB-INF/zk-label_zh.properties
+2018-03-02 12:55:36 [INFO] Opening file:/C:/workspace/Week3/src/main/webapp/WEB-INF/zk-label.properties
+2018-03-02 12:55:39 [ERROR] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
+
+2018-03-02 12:55:40 [INFO] User login, userId = 0, userName = Alex
+2018-03-02 12:55:40 [WARN] The asynchronous comet not used because CometAsyncServlet failed to install
+2018-03-02 12:59:06 [WARN] The asynchronous comet not used because CometAsyncServlet failed to install
+2018-03-02 12:59:24 [WARN] The asynchronous comet not used because CometAsyncServlet failed to install

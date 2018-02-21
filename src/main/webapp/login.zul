@@ -1,0 +1,27 @@
+<?page title="Login" contentType="text/html;charset=UTF-8"?>
+<?init class="util.LoginVerification"?>
+<zk>
+	<window title="${labels.loginPage}" border="normal" width="1000px"
+		viewModel="@id('vm') @init('viewmodel.LoginVM')">
+		<vlayout>
+			<hlayout>
+				<label value="${labels.account}:" />
+				<space />
+				<textbox value="@save(vm.account)"
+					constraint="no empty" />
+
+				<label value="${labels.password}:" />
+				<space />
+				<textbox value="@save(vm.password)"
+					constraint="no empty" type="password" />
+			</hlayout>
+
+			<hlayout>
+				<button label="${labels.login}"
+					onClick="@command('login')" />
+				<label visible="@load(vm.failLogin)"
+					value="${labels.failLoginMsg}" />
+			</hlayout>
+		</vlayout>
+	</window>
+</zk>

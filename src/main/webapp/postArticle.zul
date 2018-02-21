@@ -1,0 +1,35 @@
+<?page title="PostArticle" contentType="text/html;charset=UTF-8"?>
+<?init class="util.UserVerification"?>
+<zk>
+	<window border="normal"
+		viewModel="@id('vm') @init('viewmodel.PostVM')">
+		<vlayout>
+			<label value="${labels.title}" />
+			<textbox constraint="no empty"
+				value="@load(vm.title) @save(vm.title, before='post')" />
+			<hlayout>
+				<vlayout hflex="3">
+					<label value="${labels.content}" />
+					<ckeditor value="@bind(vm.content)" width="1000px" />
+				</vlayout>
+				<vlayout hflex="2">
+					<label value="${labels.tag}" />
+					<chosenbox id="box" model="@load(vm.existTags)"
+						hflex="1" creatable="true"
+						onSelect="@command('selectTag', tags=self.selectedObjects)"
+						onSearch="@command('newTag', tag=event.value)">
+						<template name="model">
+							<label value="@load(each.name)" />
+						</template>
+					</chosenbox>
+				</vlayout>
+			</hlayout>
+			<hlayout>
+				<button label="${labels.postArticle}"
+					visible="@load(vm.future eq null)" onClick="@command('post')" />
+				<button label="${labels.cancelPost}"
+					visible="@load(vm.future ne null)" onClick="@command('cancel')" />
+			</hlayout>
+		</vlayout>
+	</window>
+</zk>

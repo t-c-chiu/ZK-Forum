@@ -1,0 +1,97 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<hlayout
+		viewModel="@id('vm') @init('viewmodel.ListboxArticlesVM')">
+		<vlayout hflex="1">
+			<listbox model="@load(vm.articles)">
+				<listhead>
+					<listheader>
+						<label value="${labels.title}" />
+					</listheader>
+				</listhead>
+				<template name="model">
+					<listitem
+						onClick="@global-command('showContent', target=each)">
+						<listcell>
+							<label value="@load(each.title)" />
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+		</vlayout>
+
+		<vlayout hflex="2">
+			<include visible="@load(vm.currentArticle ne null)"
+				src="mainArticle.zul" />
+
+			<listbox
+				children="@load(vm.currentArticle.children) @template(empty each.children ? 'noChild' : 'HasChild')">
+				<template name="printSelf" var="me">
+					<vlayout>
+						<hlayout>
+							<label value="${labels.replyDate}:" />
+							<label value="@load(me.date)" />
+						</hlayout>
+						<hlayout>
+							<label value="${labels.author}:" />
+							<label value="@load(me.author.name)" />
+						</hlayout>
+						<hlayout>
+							<label value="${labels.title}:" />
+							<label value="@load(me.title)" />
+						</hlayout>
+						<hlayout>
+							<forEach items="@load(me.tags)">
+								<label value="@load(each.name)" />
+							</forEach>
+						</hlayout>
+						<separator />
+						<hlayout>
+							<label value="${labels.content}:" />
+							<html content="@load(me.content)" />
+						</hlayout>
+						<hlayout>
+							<button
+								onClick="@command('reply', articleId=me.id)"
+								label="${labels.reply}" />
+							<button
+								if="${sessionScope.user.id == me.authorId and empty me.children}"
+								label="${labels.modify}"
+								onClick="@command('requestModify', target=me)" />
+							<button
+								if="${sessionScope.user.id == me.authorId}"
+								label="${labels.delete}"
+								onClick="@command('delete', target=me)" />
+						</hlayout>
+					</vlayout>
+				</template>
+
+				<template name="noChild" var="child">
+					<if test="@load(child.status eq 0)">
+						<listitem>
+							<listcell>
+								<apply template="printSelf"
+									me="@ref(child)" />
+							</listcell>
+						</listitem>
+					</if>
+				</template>
+
+				<template name="HasChild" var="child">
+					<if test="@load(child.status eq 0)">
+						<listitem>
+							<listcell>
+								<apply template="printSelf"
+									me="@ref(child)" />
+								<separator />
+								<listbox
+									children="@load(child.children) @template(empty each.children ? 'noChild' : 'HasChild')">
+								</listbox>
+							</listcell>
+						</listitem>
+					</if>
+				</template>
+			</listbox>
+		</vlayout>
+	</hlayout>
+</zk>

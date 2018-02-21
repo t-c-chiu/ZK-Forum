@@ -1,0 +1,38 @@
+<?page title="Forum" contentType="text/html;charset=UTF-8"?>
+<?init class="util.UserVerification"?>
+<zk>
+	<window title="${labels.forum}" border="normal"
+		viewModel="@id('vm') @init('viewmodel.ForumVM')">
+		<hlayout>
+			<div hflex="1">
+				<button label="${labels.postArticle}"
+					onClick="@command('post')" />
+			</div>
+			<div hflex="1">
+				<label
+					value="${labels.welcome}, ${sessionScope.user.name}" />
+			</div>
+			<div hflex="1">
+				<button label="${labels.logout}"
+					onClick="@command('logout')" />
+			</div>
+		</hlayout>
+	</window>
+	<separator />
+	<hlayout>
+		<include hflex="1" src="latestTenArticles.zul" />
+		<include hflex="1" src="latestTenRepliedArticles.zul" />
+		<include hflex="1"
+			src="latestTenArticlesRelatedToTheCurrentUser.zul" />
+	</hlayout>
+	<window viewModel="@id('vm') @init('viewmodel.ViewTypeVM')">
+		<hlayout>
+			<button label="ListboxView"
+				onClick="@command('showListboxView')" hflex="1" />
+			<button label="TreeView" onClick="@command('showTreeView')"
+				hflex="1" />
+		</hlayout>
+		<separator />
+		<include src="@load(vm.viewType)" />
+	</window>
+</zk>

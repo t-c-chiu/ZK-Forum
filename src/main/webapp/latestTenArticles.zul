@@ -1,0 +1,19 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<listbox
+		viewModel="@id('vm') @init('viewmodel.LastestTenArticlesVM')"
+		model="@load(vm.articlesTitle)">
+		<listhead>
+			<listheader>
+				<label value="${labels.latestTenArticles}" />
+			</listheader>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell>
+					<label value="@load(each)" />
+				</listcell>
+			</listitem>
+		</template>
+	</listbox>
+</zk>

@@ -1,0 +1,26 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<hlayout viewModel="@id('vm') @init('viewmodel.TreeArticlesVM')">
+		<vlayout hflex="1">
+			<tree model="@load(vm.articlesModel)">
+				<treecols>
+					<treecol>
+						<label value="${labels.title}" />
+					</treecol>
+				</treecols>
+				<template name="model">
+						<treeitem
+							onOpen="@command('loadChildren', target=each)"
+							onClick="@global-command('showContent', target=each.data)">
+							<treerow>
+								<treecell label="@load(each.title)" />
+							</treerow>
+						</treeitem>
+				</template>
+			</tree>
+		</vlayout>
+		<vlayout hflex="2">
+			<include src="mainArticle.zul" />
+		</vlayout>
+	</hlayout>
+</zk>
