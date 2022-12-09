@@ -6,7 +6,7 @@
 	<version>1.0</version>
 	<properties>
 		<zk.version>8.5.0-Eval</zk.version>
-		<spring.version>3.1.2.RELEASE</spring.version>
+		<spring.version>6.0.0</spring.version>
 		<hibernate.version>4.0.0.Final</hibernate.version>
 		<commons-io>2.7</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
